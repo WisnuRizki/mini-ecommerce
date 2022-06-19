@@ -15,6 +15,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'id',
         as: 'FkUserRole'
       });
+
+      this.hasMany(models.History,{
+        foreignKey: 'id',
+        as: 'FkUserHistory'
+      });
+
+
     }
   }
   User.init({

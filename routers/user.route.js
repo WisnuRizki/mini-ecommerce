@@ -8,7 +8,9 @@ const {
     getAllProduct,
     topUp,
     purchaseProduct,
-    getHistory
+    getHistory,
+    getProductByName,
+    getBalance
 } = require('../controllers/user.controller')
 
 router.post('/Register', signUp);
@@ -17,6 +19,8 @@ router.post('/purchase', verify,purchaseProduct);
 router.post('/inputProduct',verify,inputProduct);
 router.post('/topUp',verify,topUp);
 router.get('/allProduct',getAllProduct)
+router.get('/product',getProductByName)
 router.get('/getHistory',verify,getHistory)
+router.get('/getBalance',verify,getBalance)
 
 module.exports = router ;

@@ -105,6 +105,25 @@ const getAllProduct = async (req,res) => {
     })
 }
 
+const getProductByName = async (req,res) => {
+    const {name} = req.body;
+    Product.findOne({
+        where: {
+            name: name
+        }
+    }).then(data => {
+        res.status(200).json({
+            status: 'Success',
+            data: data
+        })
+    }).catch(e => {
+        res.status(400).json({
+            status: 'Fail',
+            data: data
+        })
+    })
+};
+
 const inputProduct = async (req,res) => {
     const {name,category,price,quantity} = req.body;
 
@@ -247,7 +266,28 @@ const getHistory = async (req,res) => {
     History.findAll({
         where: {
             user_id: req.id
-        }
+        },
+        attributes: [
+            'id',
+            'quantity',
+            'total_price',
+            [sequelize.literal(`"FkHistoryUser"."username"`), "username"],
+            [sequelize.literal(`"FkHistoryProduct"."name"`), "name"],
+        ],
+        subQuery: false,
+        include:[{
+            model: Product,
+            as: 'FkHistoryProduct',
+            attributes: []
+        },{
+            model: User,
+            as: 'FkHistoryUser',
+            attributes: []
+        }]
+        // include: {
+        //     model: User,
+        //     as: 'FkHistoryUser',   
+        // }
     }).then(data => {
         res.status(200).json({
             status: 'Success',
@@ -261,6 +301,19 @@ const getHistory = async (req,res) => {
     })
 }
 
+const getBalance = async (req,res) => {
+    Balance.findOne({
+        where: {
+            user_id: req.id
+        }
+    }).then(data => {
+        res.status(200).json({
+            status: 'Success',
+            data: data
+        })
+    })
+}
+
 module.exports = {
     signUp,
     login,
@@ -268,5 +321,7 @@ module.exports = {
     getAllProduct,
     topUp,
     purchaseProduct,
-    getHistory
+    getHistory,
+    getProductByName,
+    getBalance
 }
