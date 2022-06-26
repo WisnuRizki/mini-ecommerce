@@ -20,7 +20,7 @@ const RegisterValidation = Joi.object({
 
 const loginValidation = Joi.object({
     password: Joi.string()
-        .min(2)
+        .min(8)
         .required(),
 
     email: Joi.string()
@@ -62,9 +62,11 @@ const inputProductValidation = Joi.object({
     .required(),
 
     price: Joi.number()
+    .min(1)
     .required(),
 
     quantity: Joi.number()
+    .min(1)
     .required(),
 })
 
