@@ -128,17 +128,30 @@ const inputProduct = async (req,res) => {
     const {name,category,price,quantity} = req.body;
 
     if(req.role === 'admin'){
-        Product.create({
-            name: name,
-            category: category,
-            price: price,
-            quantity: quantity
+        Product.findOne({
+            where: {
+                name: name
+            }
         }).then(data => {
-            res.status(200).json({
-                status: 'Success',
-                message: 'berhasil menambahkan product',
-                data: data
-            })
+            if(data === null){
+                Product.create({
+                    name: name,
+                    category: category,
+                    price: price,
+                    quantity: quantity
+                }).then(data => {
+                    res.status(200).json({
+                        status: 'Success',
+                        message: 'berhasil menambahkan product',
+                        data: data
+                    })
+                })
+            }else{
+                res.status(400).json({
+                    status: 'Gagal',
+                    message: 'Anda tidak dapat menambahkan product'
+                })
+            }
         })
     }else{
         res.status(400).json({
@@ -146,6 +159,28 @@ const inputProduct = async (req,res) => {
             message: 'Anda tidak dapat menambahkan product'
         })
     }
+
+    
+
+    // if(req.role === 'admin'){
+    //     Product.create({
+    //         name: name,
+    //         category: category,
+    //         price: price,
+    //         quantity: quantity
+    //     }).then(data => {
+    //         res.status(200).json({
+    //             status: 'Success',
+    //             message: 'berhasil menambahkan product',
+    //             data: data
+    //         })
+    //     })
+    // }else{
+    //     res.status(400).json({
+    //         status: 'Gagal',
+    //         message: 'Anda tidak dapat menambahkan product'
+    //     })
+    // }
     
 }
 
@@ -209,29 +244,33 @@ const purchaseProduct = async (req,res) => {
                     name: name
                 }
             }, { transaction: t })
-
+            console.log(findProduct,"hello a")
             const findBalance = await Balance.findOne({
                 where: {
                     user_id: req.id
                 }
             }, { transaction: t })
-
+            console.log(findBalance,"hello b")
             let totalPrice = findProduct.price * quantity;
-
+            console.log(totalPrice,"hello c")
+            console.log(findBalance.amount,totalPrice)
             if(findBalance.amount > totalPrice){
-                let amountBalance = findBalance.amount - findProduct.price
+                let amountBalance = findBalance.amount - totalPrice;
                 const changeBalance = await Balance.update({amount: amountBalance},{
                     where: {
                         user_id: req.id
                     }
                 }, { transaction: t })
-
+                console.log(amountBalance,"hello d")
+                
                 let newQuantity = findProduct.quantity - quantity;
                 const changeQuantity = await Product.update({quantity: newQuantity},{
                     where: {
                         name: name
                     }
                 }, { transaction: t })
+                console.log(changeQuantity,"hello e")
+                
 
                 const createHisotry = await History.create({
                     user_id: req.id,
@@ -249,6 +288,12 @@ const purchaseProduct = async (req,res) => {
                   })
 
                 
+            }else{
+                res.status(200).json({
+                    status: 'Fail',
+                    message: 'Gagal',
+                    
+                })
             }
       
         });
