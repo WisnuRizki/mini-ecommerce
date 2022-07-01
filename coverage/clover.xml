@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1656642994657" clover="3.2.0">
+  <project timestamp="1656642994657" name="All files">
+    <metrics statements="145" coveredstatements="100" conditionals="25" coveredconditionals="11" methods="44" coveredmethods="32" elements="214" coveredelements="143" complexity="0" loc="145" ncloc="145" packages="4" files="9" classes="9"/>
+    <package name="config">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="config.js" path="C:\Users\HP\Documents\Kuliah\Bootcamp Cooderu\Pertemuan 6 juni\miniEcommerce\config\config.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="controllers">
+      <metrics statements="83" coveredstatements="48" conditionals="14" coveredconditionals="5" methods="28" coveredmethods="19"/>
+      <file name="user.controller.js" path="C:\Users\HP\Documents\Kuliah\Bootcamp Cooderu\Pertemuan 6 juni\miniEcommerce\controllers\user.controller.js">
+        <metrics statements="83" coveredstatements="48" conditionals="14" coveredconditionals="5" methods="28" coveredmethods="19"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="72" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="100" count="2" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="106" count="1" type="stmt"/>
+        <line num="113" count="1" type="stmt"/>
+        <line num="114" count="2" type="stmt"/>
+        <line num="115" count="2" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="132" count="2" type="stmt"/>
+        <line num="134" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="140" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="147" count="0" type="stmt"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="161" count="2" type="stmt"/>
+        <line num="191" count="1" type="stmt"/>
+        <line num="192" count="2" type="stmt"/>
+        <line num="194" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="195" count="1" type="stmt"/>
+        <line num="200" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="201" count="0" type="stmt"/>
+        <line num="205" count="0" type="stmt"/>
+        <line num="211" count="0" type="stmt"/>
+        <line num="218" count="1" type="stmt"/>
+        <line num="219" count="1" type="stmt"/>
+        <line num="224" count="0" type="stmt"/>
+        <line num="229" count="0" type="stmt"/>
+        <line num="240" count="1" type="stmt"/>
+        <line num="241" count="0" type="stmt"/>
+        <line num="243" count="0" type="stmt"/>
+        <line num="245" count="0" type="stmt"/>
+        <line num="246" count="0" type="stmt"/>
+        <line num="252" count="0" type="stmt"/>
+        <line num="258" count="0" type="stmt"/>
+        <line num="260" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="261" count="0" type="stmt"/>
+        <line num="262" count="0" type="stmt"/>
+        <line num="269" count="0" type="stmt"/>
+        <line num="270" count="0" type="stmt"/>
+        <line num="278" count="0" type="stmt"/>
+        <line num="286" count="0" type="stmt"/>
+        <line num="294" count="0" type="stmt"/>
+        <line num="304" count="0" type="stmt"/>
+        <line num="312" count="1" type="stmt"/>
+        <line num="313" count="2" type="stmt"/>
+        <line num="339" count="1" type="stmt"/>
+        <line num="344" count="1" type="stmt"/>
+        <line num="351" count="1" type="stmt"/>
+        <line num="352" count="2" type="stmt"/>
+        <line num="357" count="1" type="stmt"/>
+        <line num="362" count="1" type="stmt"/>
+        <line num="368" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="middleware">
+      <metrics statements="14" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="authentication.js" path="C:\Users\HP\Documents\Kuliah\Bootcamp Cooderu\Pertemuan 6 juni\miniEcommerce\middleware\authentication.js">
+        <metrics statements="14" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="models">
+      <metrics statements="46" coveredstatements="45" conditionals="9" coveredconditionals="6" methods="13" coveredmethods="13"/>
+      <file name="balance.js" path="C:\Users\HP\Documents\Kuliah\Bootcamp Cooderu\Pertemuan 6 juni\miniEcommerce\models\balance.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+      <file name="history.js" path="C:\Users\HP\Documents\Kuliah\Bootcamp Cooderu\Pertemuan 6 juni\miniEcommerce\models\history.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+      <file name="index.js" path="C:\Users\HP\Documents\Kuliah\Bootcamp Cooderu\Pertemuan 6 juni\miniEcommerce\models\index.js">
+        <metrics statements="20" coveredstatements="19" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="24" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+      </file>
+      <file name="product.js" path="C:\Users\HP\Documents\Kuliah\Bootcamp Cooderu\Pertemuan 6 juni\miniEcommerce\models\product.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+      </file>
+      <file name="role.js" path="C:\Users\HP\Documents\Kuliah\Bootcamp Cooderu\Pertemuan 6 juni\miniEcommerce\models\role.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+      </file>
+      <file name="user.js" path="C:\Users\HP\Documents\Kuliah\Bootcamp Cooderu\Pertemuan 6 juni\miniEcommerce\models\user.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

@@ -32,30 +32,33 @@ const signUp = async (req, res) => {
                     user_id: user.id
                   }, { transaction: t });
 
-                  res.status(200).json({
+                  return res.status(200).json({
                     status: 'success',
                     message: 'Sukses menambahkan user',
                     data: user
                 })
             }else{
-                res.status(400).json({
+                return res.status(400).json({
                     status: 'Gagal',
                     message: 'Gagal menambahkan User'
                 })
             }
-          console.log();
+        
       
         });
       
       } catch (error) {
-        console.log("error")
+        return res.status(400).json({
+            status: 'Gagal',
+            message: 'Gagal menambahkan User'
+        })
       }
 };
 
 const login = async (req,res) => {
     const {email,password} = req.body;
     console.log(email,password)
-    User.findOne({
+   await User.findOne({
         where: {
             email: email
         },
@@ -77,7 +80,7 @@ const login = async (req,res) => {
                 username: user.username,
                 role: user.FkUserRole.role
             }
-            console.log(data)
+
             let token = generateToken(data);
 
             return res.status(200).send({
@@ -88,11 +91,13 @@ const login = async (req,res) => {
                    token: token
                 }
             })
+    }).catch(e => {
+        return res.status(400)
     })
 };
 
 const getAllProduct = async (req,res) => {
-    Product.findAll().then(data => {
+    await Product.findAll().then(data => {
         res.status(200).json({
             status: 'Success',
             data: data
@@ -100,14 +105,14 @@ const getAllProduct = async (req,res) => {
     }).catch(e => {
         res.status(400).json({
             status: 'Fail',
-            data: data
+    
         })
     })
 }
 
 const getProductByName = async (req,res) => {
     const {name} = req.body;
-    Product.findOne({
+    await Product.findOne({
         where: {
             name: name
         }
@@ -119,22 +124,21 @@ const getProductByName = async (req,res) => {
     }).catch(e => {
         res.status(400).json({
             status: 'Fail',
-            data: data
         })
     })
 };
 
 const inputProduct = async (req,res) => {
     const {name,category,price,quantity} = req.body;
-
+ 
     if(req.role === 'admin'){
-        Product.findOne({
+         Product.findOne({
             where: {
                 name: name
             }
         }).then(data => {
             if(data === null){
-                Product.create({
+                 Product.create({
                     name: name,
                     category: category,
                     price: price,
@@ -188,13 +192,13 @@ const topUp = async (req,res) => {
     const {user_id,amount} = req.body;
 
     if(req.role === 'admin'){
-        Balance.findOne({
+        await Balance.findOne({
             where: {
                 user_id: user_id
             }
         }).then(data => {
             if(data === null){
-                Balance.create({
+                 Balance.create({
                     user_id: user_id,
                     amount: amount
                 }).then(data => {
@@ -244,16 +248,15 @@ const purchaseProduct = async (req,res) => {
                     name: name
                 }
             }, { transaction: t })
-            console.log(findProduct,"hello a")
+         
             const findBalance = await Balance.findOne({
                 where: {
                     user_id: req.id
                 }
             }, { transaction: t })
-            console.log(findBalance,"hello b")
+         
             let totalPrice = findProduct.price * quantity;
-            console.log(totalPrice,"hello c")
-            console.log(findBalance.amount,totalPrice)
+         
             if(findBalance.amount > totalPrice){
                 let amountBalance = findBalance.amount - totalPrice;
                 const changeBalance = await Balance.update({amount: amountBalance},{
@@ -261,7 +264,7 @@ const purchaseProduct = async (req,res) => {
                         user_id: req.id
                     }
                 }, { transaction: t })
-                console.log(amountBalance,"hello d")
+        
                 
                 let newQuantity = findProduct.quantity - quantity;
                 const changeQuantity = await Product.update({quantity: newQuantity},{
@@ -269,7 +272,7 @@ const purchaseProduct = async (req,res) => {
                         name: name
                     }
                 }, { transaction: t })
-                console.log(changeQuantity,"hello e")
+               
                 
 
                 const createHisotry = await History.create({
@@ -279,7 +282,6 @@ const purchaseProduct = async (req,res) => {
                     total_price: totalPrice
                   }, { transaction: t });
 
-                  console.log(createHisotry)
 
                   res.status(200).json({
                       status: 'Success',
@@ -289,7 +291,7 @@ const purchaseProduct = async (req,res) => {
 
                 
             }else{
-                res.status(200).json({
+                res.status(400).json({
                     status: 'Fail',
                     message: 'Gagal',
                     
@@ -308,7 +310,7 @@ const purchaseProduct = async (req,res) => {
 }
 
 const getHistory = async (req,res) => {
-    History.findAll({
+    await History.findAll({
         where: {
             user_id: req.id
         },
@@ -347,7 +349,7 @@ const getHistory = async (req,res) => {
 }
 
 const getBalance = async (req,res) => {
-    Balance.findOne({
+    await Balance.findOne({
         where: {
             user_id: req.id
         }
@@ -355,6 +357,10 @@ const getBalance = async (req,res) => {
         res.status(200).json({
             status: 'Success',
             data: data
+        })
+    }).catch(e => {
+        res.status(400).json({
+            status:"Fail"
         })
     })
 }

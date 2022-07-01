@@ -7,7 +7,8 @@
     "start": "node index.js",
     "db:create:migrate": "sequelize migration:generate --name",
     "db:migrate": "sequelize db:migrate",
-    "db:rollback": "sequelize db:migrate:undo"
+    "db:rollback": "sequelize db:migrate:undo",
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -16,8 +17,10 @@
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "jest": "^28.1.2",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
+    "node-mocks-http": "^1.11.0",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.20.1"
